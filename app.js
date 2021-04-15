@@ -67,6 +67,7 @@ amqp.connect(rabbitUrl, opt, function (error0, connection) {
                 var stockKey = 'stock:' + updateStock.stockCode;
                 //Redisde Haber Varsa Güncellenir..Değilse Kaydedilir.
                 redisClient.clientABranch.set(stockKey, JSON.stringify(updateStock), function (err, res) { });
+                console.log("Redis Update : " + stockKey + JSON.stringify(updateStock) );
             }
             // if (redisClient.clientBCompany.connected) {
             //     var stockKey = 'stock:' + updateStock.stockCode;
